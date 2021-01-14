@@ -85,6 +85,7 @@ def train(inputs, expected_output, hidden_weights, hidden_bias, output_weights, 
     if output_bias is not None:
         print("Final output bias: ", end='')
         print(*output_bias)
+    predicted_output = np.around(predicted_output, decimals=0)
     return predicted_output
 
 
@@ -98,7 +99,7 @@ if __name__ == "__main__":
         hidden_weights, hidden_bias, output_weights, output_bias = initialize(4, i, 4, False)
         predicted_output = train(inputs, expected_output, hidden_weights,
                                  hidden_bias, output_weights, output_bias, 10000, 0.1)
-        print(" " + re.sub('[\[\]\.]', '', str(np.around(predicted_output, decimals=0))))
+        print(*predicted_output)
         print()
 
     print("Zadanie 1 (z biasem)")
@@ -109,7 +110,7 @@ if __name__ == "__main__":
         hidden_weights, hidden_bias, output_weights, output_bias = initialize(4, i, 4)
         predicted_output = train(inputs, expected_output, hidden_weights,
                                  hidden_bias, output_weights, output_bias, 10000, 0.1)
-        print(" " + re.sub('[\[\]\.]', '', str(np.around(predicted_output, decimals=0))))
+        print(*predicted_output)
         print()
 
     print("Zadanie 2 (bez biasu)")
