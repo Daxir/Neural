@@ -12,14 +12,14 @@ def sigmoid_derivative(x):
 
 
 def initialize(inputLayerNeurons, hiddenLayerNeurons, outputLayerNeurons, bias=True):
-    hidden_weights = np.random.uniform(size=(inputLayerNeurons, hiddenLayerNeurons))
+    hidden_weights = np.random.default_rng().random(size=(inputLayerNeurons, hiddenLayerNeurons))
     # hidden_bias = np.random.uniform(size=(1, hiddenLayerNeurons))
-    output_weights = np.random.uniform(size=(hiddenLayerNeurons, outputLayerNeurons))
+    output_weights = np.random.default_rng().random(size=(hiddenLayerNeurons, outputLayerNeurons))
     # output_bias = np.random.uniform(size=(1, outputLayerNeurons))
 
     if bias:
-        hidden_bias = np.random.uniform(size=(1, hiddenLayerNeurons))
-        output_bias = np.random.uniform(size=(1, outputLayerNeurons))
+        hidden_bias = np.random.default_rng().random(size=(1, hiddenLayerNeurons))
+        output_bias = np.random.default_rng().random(size=(1, outputLayerNeurons))
         return hidden_weights, hidden_bias, output_weights, output_bias
     else:
         return hidden_weights, None, output_weights, None
