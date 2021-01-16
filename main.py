@@ -90,8 +90,10 @@ if __name__ == "__main__":
     print("Zadanie 1 (bez biasu)")
     for i in range(1, 4):
         print(f"Ilość neuronów warstwy ukrytej: {i}")
-        inputs = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-        expected_output = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+        # inputs = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+        # expected_output = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+        inputs = np.loadtxt("transformation.txt", delimiter=' ')
+        expected_output = np.loadtxt("transformation.txt", delimiter=' ')
         hidden_weights, hidden_bias, output_weights, output_bias = initialize(4, i, 4, False)
         predicted_output = train(inputs, expected_output, hidden_weights,
                                  hidden_bias, output_weights, output_bias, 10000, 0.1)
@@ -101,8 +103,10 @@ if __name__ == "__main__":
     print("Zadanie 1 (z biasem)")
     for i in range(1, 4):
         print(f"Ilość neuronów warstwy ukrytej: {i}")
-        inputs = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-        expected_output = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+        # inputs = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+        # expected_output = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+        inputs = np.loadtxt("transformation.txt", delimiter=' ')
+        expected_output = np.loadtxt("transformation.txt", delimiter=' ')
         hidden_weights, hidden_bias, output_weights, output_bias = initialize(4, i, 4)
         predicted_output = train(inputs, expected_output, hidden_weights,
                                  hidden_bias, output_weights, output_bias, 10000, 0.1)
